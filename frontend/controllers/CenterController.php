@@ -3,18 +3,17 @@
  * Created by PhpStorm.
  * User: Administrator
  * Date: 2016/9/8 0008
- * Time: 下午 1:41
+ * Time: 下午 4:28
  */
 
 namespace frontend\controllers;
 
-use Yii;
-use common\models\LoginForm;
-use yii\helpers\Url;
+
 use yii\web\Controller;
 use yii\filters\AccessControl;
-class AdminController extends Controller
+class CenterController extends Controller
 {
+    public $layout = 'center';
     /**
      * @inheritdoc
      */
@@ -34,15 +33,7 @@ class AdminController extends Controller
             ],
         ];
     }
-    /**
-     * 用户登录
-     */
-    public function actionLogin(){
-        $loginForm = new LoginForm();
-        if($loginForm->load(Yii::$app->request->post())&&$loginForm->login()){
-            $this->redirect(Url::toRoute('center/index'));
-        }else{
-            return $this->render('login',['model' => $loginForm]);
-        }
+    public function actionIndex(){
+        return $this->render('index');
     }
 }
