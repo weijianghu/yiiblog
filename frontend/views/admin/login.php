@@ -11,14 +11,13 @@ $this->title = Yii::t('frontend/common','login');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-            <?= $form->field($model, 'password')->passwordInput() ?>
+            <?= $form->field($model, 'username',['template'=>'{label}{input}{error}'])->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'password',['template'=>'{label}{input}{error}'])->passwordInput() ?>
             <div class="form-group">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                <?= Html::submitButton(Yii::t('frontend/common','login'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
             </div>
             <?php ActiveForm::end(); ?>
         </div>
