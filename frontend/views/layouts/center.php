@@ -242,7 +242,7 @@ AppAsset::register($this);
                             <span class="pull-right glyphicon  glyphicon-chevron-toggle"></span>
                         </a>
                         <ul id="configSetting" class="nav nav-list secondmenu collapse in">
-                            <li class="active"><a href="<?=\yii\helpers\Url::toRoute(['category'])?>"><i class="glyphicon glyphicon-globe"></i>&nbsp;分类管理</a></li>
+                            <li class="active"><a href="<?=\yii\helpers\Url::toRoute(['category/index'])?>"><i class="glyphicon glyphicon-globe"></i>&nbsp;分类管理</a></li>
                             <li><a href="#"><i class="glyphicon glyphicon-star-empty"></i>&nbsp;内容管理</a></li>
                             <li><a href="#"><i class="glyphicon glyphicon-star"></i>&nbsp;标签管理</a></li>
                         </ul>
