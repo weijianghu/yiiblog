@@ -2,21 +2,22 @@
 /**
  * Created by PhpStorm.
  * User: Administrator
- * Date: 2016/9/8 0008
- * Time: 下午 4:28
+ * Date: 2016/9/9 0009
+ * Time: 上午 10:00
  */
 
 namespace frontend\controllers;
 
-
+use frontend\components\MenuHelper;
+use frontend\models\Category;
+use Yii;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\filters\AccessControl;
-class CenterController extends Controller
+class CategoryController extends Controller
 {
     public $layout = 'center';
-    /**
-     * @inheritdoc
-     */
+
     public function behaviors()
     {
         return [
@@ -33,7 +34,13 @@ class CenterController extends Controller
             ],
         ];
     }
+
     public function actionIndex(){
-        return $this->render('index');
+        //获取分类列表
+        $model = Category::find()->asArray()->all();
+        $a = ArrayHelper::index($model,'id');
+
+        $b = MenuHelper::getChilds($a,1);
+        print_r($b);
     }
 }
