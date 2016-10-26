@@ -38,7 +38,7 @@ class MenuHelper extends Component
                 if($value[$parent] == $id){
                     //寻找后代的后代，两种情况：1已经不存在后代，2仍然存在后代
                     $ret[$key] = $data[$key];
-                    $childData = self::getChilds($data,$key);
+                    $childData = self::getChilds($data,$key,$parent,$childs);
                     if(!empty($childData)) $ret[$key][$childs] = $childData;
                 }
             }
@@ -51,7 +51,7 @@ class MenuHelper extends Component
                 }
                 //分析顶级数据的后代数据
                 $ret[$key] = $value;
-                $ret[$key][$childs] = self::getChilds($data,$key);
+                $ret[$key][$childs] = self::getChilds($data,$key,$parent,$childs);
             }
         }
         return $ret;
